@@ -1,19 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
-import React, { FC, useEffect, useRef, useState, Fragment } from 'react';
-import {
-  Alert,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions
-} from 'react-native';
+import React, { FC, Fragment, useEffect, useRef, useState } from 'react';
+import { Alert, Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
 import { BodyText } from '../components/BodyText';
 import { Card } from '../components/Card';
 import { MainButton } from '../components/MainButton';
 import { NumberContainer } from '../components/NumberContainer';
 import { TitleText } from '../components/TitleText';
-import { screenHeight, screenWidth } from '../constants/screen-dimensions';
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);

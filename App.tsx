@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as Font from 'expo-font';
 
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
 import { Header } from './components/Header';
 import { GameScreen } from './screens/GameScreen';
 import { StartGameScreen } from './screens/StartGamesScreens';
@@ -86,7 +86,7 @@ export default function App() {
   // };
 
   return (
-    <View style={styles.screen}>
+    <SafeAreaView style={styles.screen}>
       <Header title={'Guess a Number'} />
       {content}
       {/* <Button title='Add new goal' onPress={toggleShowGoalInput} /> */}
@@ -106,7 +106,7 @@ export default function App() {
           />
         )}
       /> */}
-    </View>
+    </SafeAreaView>
   );
 }
 

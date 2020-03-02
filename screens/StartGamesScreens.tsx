@@ -1,5 +1,16 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Alert, AlertButton, Button, Dimensions, Keyboard, KeyboardAvoidingView, ScrollView, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
+import {
+  Alert,
+  AlertButton,
+  Button,
+  Dimensions,
+  Keyboard,
+  KeyboardAvoidingView,
+  ScrollView,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View
+} from 'react-native';
 import { BodyText } from '../components/BodyText';
 import { Card } from '../components/Card';
 import { Input } from '../components/Input';
@@ -7,7 +18,6 @@ import { MainButton } from '../components/MainButton';
 import { NumberContainer } from '../components/NumberContainer';
 import { TitleText } from '../components/TitleText';
 import Colors from '../constants/colors';
-import { screenWidth } from '../constants/screen-dimensions';
 
 let styleButtonOptions: AlertButton;
 
@@ -145,7 +155,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
   button: {
-    width: screenWidth / 4
+    width: Dimensions.get('window').width / 4
   },
   input: {
     width: 50,
