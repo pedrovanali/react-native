@@ -1,5 +1,14 @@
 import React, { FC } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  Platform,
+  Touchable,
+  TouchableMixin
+} from 'react-native';
 import Colors from '../constants/colors';
 
 export const MainButton: FC<{ style?: {}; onPress: () => void }> = ({
@@ -7,16 +16,26 @@ export const MainButton: FC<{ style?: {}; onPress: () => void }> = ({
   onPress,
   children
 }) => {
+  let ButtonComponent: any = TouchableOpacity;
+  if (Platform.OS === 'android' && Platform.Version >= 21) {
+    ButtonComponent = TouchableNativeFeedback;
+  }
   return (
-    <TouchableOpacity activeOpacity={0.6} onPress={onPress}>
-      <View style={styles.button}>
-        <Text style={styles.buttonText}>{children}</Text>
-      </View>
-    </TouchableOpacity>
+    <View style={styles.buttonContainer}>
+      <ButtonComponent activeOpacity={0.6} onPress={onPress}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>{children}</Text>
+        </View>
+      </ButtonComponent>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    borderRadius: 25,
+    overflow: 'hidden'
+  },
   button: {
     backgroundColor: Colors.primary,
     paddingVertical: 12,
